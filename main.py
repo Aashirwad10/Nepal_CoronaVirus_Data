@@ -55,3 +55,7 @@ df['Death Rate'] = (df['Death'] / df['Confirmed Cases']) * 100
 print(df['Recovery Rate'])
 print(df['Death Rate'])
 print(df[['District', 'Recovery Rate', 'Death Rate']])
+
+# PART 1.5 Sort districts by severity 
+df_sorted_cases = df.sort_values(by='Confirmed Cases', ascending=False)
+print(df_sorted_cases[['District', 'Confirmed Cases']].head(10)) 
