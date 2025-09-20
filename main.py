@@ -48,3 +48,10 @@ confirmed_district = df.groupby('District').sum()['Confirmed Cases']
 confirmed_district_sorted = confirmed_district.sort_values(ascending=False)
 top3_confirmed_district = confirmed_district_sorted.tail(5)
 print(top3_confirmed_district)
+
+# PART 1.4 Calculate recovery rate and death rate for each district
+df['Recovery Rate'] = (df['Recovered'] / df['Confirmed Cases']) * 100
+df['Death Rate'] = (df['Death'] / df['Confirmed Cases']) * 100
+print(df['Recovery Rate'])
+print(df['Death Rate'])
+print(df[['District', 'Recovery Rate', 'Death Rate']])
