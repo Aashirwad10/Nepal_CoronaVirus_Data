@@ -11,3 +11,40 @@ print(df.isnull().sum())
 
 # PART 1.2 Summarize data: total confirmed, deaths, recovered
 print(df[['Confirmed Cases', 'Death', 'Recovered']].sum())
+
+# PART: 1.3 Find top/bottom 5 districts by confirmed cases, deaths, recoveries
+# TOP 5 districts by confirmed cases
+confirmed_district = df.groupby('District').sum()['Confirmed Cases']
+confirmed_district_sorted = confirmed_district.sort_values(ascending=False)
+top3_confirmed_district = confirmed_district_sorted.head(5)
+print(top3_confirmed_district)
+
+# TOP 5 districts by death
+death_district = df.groupby('District').sum()['Death']
+death_district_sorted = death_district.sort_values(ascending=False)
+top3_death_district = death_district_sorted.head(5)
+print(top3_death_district)
+
+# TOP 5 districts by recovery
+recovered_district = df.groupby('District').sum()['Recovered']
+recovered_district_sorted = recovered_district.sort_values(ascending=False)
+top3_recovered_district = recovered_district_sorted.head(5)
+# print(top3_recovered_district)
+
+# Bottom 5 districts by recovery
+recovered_district = df.groupby('District').sum()['Recovered']
+recovered_district_sorted = recovered_district.sort_values(ascending=False)
+top3_recovered_district = recovered_district_sorted.tail(5)
+print(top3_recovered_district)
+
+# Bottom 5 districts by death
+death_district = df.groupby('District').sum()['Death']
+death_district_sorted = death_district.sort_values(ascending=False)
+top3_death_district = death_district_sorted.tail(5)
+print(top3_death_district)
+
+# Bottom 5 districts by confirmed cases
+confirmed_district = df.groupby('District').sum()['Confirmed Cases']
+confirmed_district_sorted = confirmed_district.sort_values(ascending=False)
+top3_confirmed_district = confirmed_district_sorted.tail(5)
+print(top3_confirmed_district)
